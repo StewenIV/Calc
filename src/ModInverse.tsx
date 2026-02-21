@@ -36,6 +36,7 @@ export const ModInverse = () => {
                 <div className="flex content-center">
                     <Input 
                         defaultValue={firstDigit}
+                        onFocus={(ev) => ev.target.select()}
                         onChange={(ev) => setFirstDigit(parseInt(ev.target.value) || "")}
                         placeholder="17" className="px-2 w-32 h-18 text-center text-5xl"/>
                     <Input 
@@ -45,6 +46,7 @@ export const ModInverse = () => {
                 <span className="text-2xl ml-2 mr-4">%</span>
                 <Input 
                     defaultValue={modulo}
+                    onFocus={(ev) => ev.target.select()}
                     onChange={(ev) => setModulo(parseInt(ev.target.value) || "")} 
                     placeholder="13" className="px-2 w-32 h-18 text-center text-5xl" />
             </div>

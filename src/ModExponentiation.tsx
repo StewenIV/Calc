@@ -42,12 +42,14 @@ export const ModExponentiation = () => {
                 <div className="flex content-center">
                     <Input
                         onChange={(ev) => setFirstDigit(parseInt(ev.target.value) || "")}
+                        onFocus={(ev) => ev.target.select()}
                         placeholder="17" 
                         defaultValue={firstDigit} 
                         className="px-2 w-32 h-18 text-center text-5xl"/>
 
                     <Input
                         onChange={(ev) => setSecondDigit(parseInt(ev.target.value) || "")}
+                        onFocus={(ev) => ev.target.select()}                        
                         placeholder="21" 
                         defaultValue={secondDigit} 
                         className="ml-1 text-xl w-12 h-10 text-center p-0" />
@@ -55,6 +57,7 @@ export const ModExponentiation = () => {
                 <span className="text-2xl ml-2 mr-4">%</span>
                 <Input
                     onChange={(ev) => setModulo(parseInt(ev.target.value) || "")} 
+                    onFocus={(ev) => ev.target.select()}                    
                     placeholder="13" 
                     defaultValue={modulo} 
                     className="px-2 w-32 h-18 text-center text-5xl" />
