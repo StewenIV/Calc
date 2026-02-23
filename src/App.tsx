@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Header } from './Header'
 import { Operation } from './types/Operation'
-import { ModInverse } from './ModInverse'
-import { ModExponentiation } from './ModExponentiation'
+import { ModInverse } from './components/mod-inverse/ModInverse'
+import { ModExponentiation } from './components/mod-exponentiation/ModExponentiation'
 
 function App() {
   const [operation, setOperation] = useState<Operation>(Operation.ModExponentiation)
@@ -12,8 +12,7 @@ function App() {
         <Header
           setValue={setOperation} 
           value={operation}/>
-        {operation === Operation.ModExponentiation && 
-        <ModExponentiation />}
+        {operation === Operation.ModExponentiation && <ModExponentiation />}
         {operation === Operation.ModInverse && <ModInverse />}
     </main>
   )

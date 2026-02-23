@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import { Input } from "./shared/input"
+import { Input } from "../../shared/input"
+import { calculate } from "./utils/calculate";
 
 
 export const ModInverse = () => {
@@ -9,25 +10,8 @@ export const ModInverse = () => {
     const [result, setResult] = useState<number | "">("")
 
     useEffect(() => {
-        calculate()
+        setResult(calculate(firstDigit, modulo) || "")
     }, [firstDigit, modulo])
-
-    const isValuesValid = () => {
-        return typeof firstDigit === "number" && typeof modulo === "number"
-    } 
-    const calculate = () => {
-        if(!isValuesValid()) return;
-
-        let a : number  = firstDigit as number;
-        const b = modulo as number;
-        a %= b;
-        for (let x = 1; x < b; x++) {
-            if ((a*x)%b == 1) {
-                setResult(x)
-                return;
-            }
-        }
-    }
 
 
     return (

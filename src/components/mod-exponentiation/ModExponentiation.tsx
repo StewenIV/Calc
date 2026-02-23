@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import { Input } from "./shared/input"
+import { Input } from "../../shared/input"
+import { calculate } from "./utils/calculate"
 
 
 export const ModExponentiation = () => {
@@ -9,32 +10,9 @@ export const ModExponentiation = () => {
     const [result, setResult] = useState<number | "">("")
 
     useEffect(() => {
-        setResult(calculate())
+        setResult(calculate(firstDigit, secondDigit, modulo) || "")
     }, [firstDigit, secondDigit, modulo])
 
-    const isValuesValid = () => {
-        return typeof firstDigit === "number" && typeof secondDigit === "number" && typeof modulo === "number"
-    } 
-
-    // right-to-left binary method
-    const calculate = () => { 
-        if (!isValuesValid()) return ""
-
-        let result = 1
-        let base = (firstDigit as number) % (modulo as number) 
-        let exponent = secondDigit
-
-        while ((exponent as number) > 0) {
-            if ((exponent as number) % 2 == 1)
-                result = (result * base) % (modulo as number)
-
-            base = (base * base) % (modulo as number)
-            exponent = Math.floor((exponent as number) / 2)
-            
-        }
-
-        return result        
-    }
 
     return (
         <section className="p-4 flex flex-col items-center gap-4">
