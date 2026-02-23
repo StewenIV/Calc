@@ -3,7 +3,7 @@ const isValuesValid = (firstDigit: number | "", modulo: number | "") => {
 } 
 
 export const calculate = (firstDigit: number | "", modulo: number | "") => {
-        if(!isValuesValid(firstDigit, modulo)) return;
+        if(!isValuesValid(firstDigit, modulo)) return null;
 
         let a : number  = firstDigit as number;
         const b = modulo as number;
@@ -13,5 +13,6 @@ export const calculate = (firstDigit: number | "", modulo: number | "") => {
                 return x;
             }
         }
+        return null;
     }
 

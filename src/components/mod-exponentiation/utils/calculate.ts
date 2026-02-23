@@ -4,7 +4,7 @@ const isValuesValid = (firstDigit: number | "", secondDigit: number | "", modulo
 
 // right-to-left binary method
 export const calculate = (firstDigit: number | "", secondDigit: number | "", modulo: number | "") => { 
-        if (!isValuesValid(firstDigit, secondDigit, modulo)) return ""
+        if (!isValuesValid(firstDigit, secondDigit, modulo)) return null;
 
         let result = 1
         let base = (firstDigit as number) % (modulo as number) 
