@@ -77,6 +77,13 @@ describe("get dividers", () => {
 describe("gcd", () => {
     test("calculates gcd", () => {
         expect(gcd(48, 18)).toBe(6);
+        expect(gcd(56, 98)).toBe(14);
+        expect(gcd(101, 10)).toBe(1); 
+        expect(gcd(216, 48)).toBe(24);
+    });
+
+    test("calculates gcd with one number being one", () => {
+        expect(gcd(1, 5)).toBe(1);
     });
 
     test("calculates gcd with prime numbers", () => {
