@@ -1,6 +1,4 @@
-const isValuesValid = (firstDigit: number | "", modulo: number | "") => {
-    return typeof firstDigit === "number" && typeof modulo === "number"
-} 
+import { isValuesValid } from "./is-values-valid";
 
 export const calculate = (firstDigit: number | "", modulo: number | "") => {
         if(!isValuesValid(firstDigit, modulo)) return null;
