@@ -59,3 +59,7 @@ test("calculates dividers with no value", () => {
 test("calculates dividers with big value", () => {
     expect(getDividers(1000000)).toEqual([2, 2, 2, 2, 2, 2, 5, 5, 5, 5, 5, 5]);
 })
+
+test("calculates dividers with prime number", () => {
+    expect(getDividers(146)).toEqual([2, 73]);
+});
