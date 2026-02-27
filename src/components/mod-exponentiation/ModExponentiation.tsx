@@ -23,14 +23,14 @@ export const ModExponentiation = () => {
                         onFocus={(ev) => ev.target.select()}
                         placeholder="17" 
                         defaultValue={firstDigit} 
-                        className="px-2 w-32 h-18 text-center text-5xl"/>
+                        className="px-2 w-32 h-18 text-center text-5xl placeholder:text-gray-300"/>
 
                     <Input
                         onChange={(ev) => setSecondDigit(parseInt(ev.target.value) || "")}
                         onFocus={(ev) => ev.target.select()}                        
                         placeholder="21" 
                         defaultValue={secondDigit} 
-                        className="ml-1 text-xl w-12 h-10 text-center p-0" />
+                        className="ml-1 text-xl w-12 h-10 text-center p-0 placeholder:text-gray-300" />
                 </div>
                 <span className="text-2xl ml-2 mr-4">%</span>
                 <Input
@@ -38,7 +38,7 @@ export const ModExponentiation = () => {
                     onFocus={(ev) => ev.target.select()}                    
                     placeholder="13" 
                     defaultValue={modulo} 
-                    className="px-2 w-32 h-18 text-center text-5xl" />
+                    className="px-2 w-32 h-18 text-center text-5xl placeholder:text-gray-300" />
             </div>
             <div className="font-bold text-6xl">{result}</div>
         </section>
