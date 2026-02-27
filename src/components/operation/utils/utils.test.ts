@@ -2,6 +2,7 @@ import { test, expect } from "@jest/globals";
 import { calculate as calculateExponentiation } from "./mod-exponentiation";
 import { calculate as calculateInverse } from "./mod-inverse";
 import { getDividers } from "./get-dividers";
+import { gcd } from "./gcd";
 
 test("calculates modular exponentiation with positive base", () => {
     expect(calculateExponentiation(27, 11, 7)).toBe(6);
@@ -62,4 +63,26 @@ test("calculates dividers with big value", () => {
 
 test("calculates dividers with prime number", () => {
     expect(getDividers(146)).toEqual([2, 73]);
+});
+
+
+
+test("calculates gcd", () => {
+    expect(gcd(48, 18)).toBe(6);
+});
+
+test("calculates gcd with prime numbers", () => {
+    expect(gcd(13, 17)).toBe(1);
+});
+
+test("calculates gcd with one number being zero", () => {
+    expect(gcd(0, 5)).toBe(5);
+});
+
+test("calculates gcd with both numbers being zero", () => {
+    expect(gcd(0, 0)).toBe(0);
+});
+
+test("calculates gcd with negative numbers", () => {
+    expect(gcd(-48, -18)).toBe(6);
 });
