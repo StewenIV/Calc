@@ -1,13 +1,18 @@
-import { ClockFading, Info } from "lucide-react"
+import { ClockFading, Info, Moon, Sun } from "lucide-react"
 import { ToggleGroup, ToggleGroupItem } from "./shared/toggle-group"
 import { Operation } from "./types/Operation"
+import { useTheme } from "./components/theme-provider/theme-provider"
 
 
 export const Header = ({value, setValue} : {value: Operation, setValue: (value: Operation) => void}) => {
+    const {setTheme, theme} = useTheme()
+
     return (
         <header className="header flex flex-row justify-between items-center w-screen px-4 py-2">
             <div>
-                <ClockFading />
+                {theme === "dark" ? 
+                <Sun size={24} className="cursor-pointer" onClick={() => setTheme("light")} /> : 
+                <Moon size={24} className="cursor-pointer" onClick={() => setTheme("dark")} />}
             </div>
             <div>
                 <ToggleGroup onValueChange={v => v && setValue(v as Operation)} type="single" variant="outline" value={value}>
