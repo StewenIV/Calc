@@ -1,4 +1,4 @@
-import { ClockFading, Info, Moon, Sun } from "lucide-react"
+import { Info, Moon, Sun } from "lucide-react"
 import { ToggleGroup, ToggleGroupItem } from "./shared/toggle-group"
 import { Operation } from "./types/Operation"
 import { useTheme } from "./components/theme-provider/theme-provider"

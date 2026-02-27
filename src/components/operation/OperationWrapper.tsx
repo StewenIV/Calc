@@ -43,12 +43,12 @@ export const OperationWrapper = (props: OperationWrapperProps) => {
                         defaultValue={firstDigit}
                         onFocus={(ev) => ev.target.select()}
                         onChange={(ev) => setFirstDigit(parseInt(ev.target.value) || "")}
-                        placeholder="17" className="px-2 w-32 h-18 text-center text-5xl placeholder:text-gray-300"/>
+                        placeholder="17" className="px-2 w-32 h-18 text-center text-5xl placeholder:text-gray-300/50"/>
                     {showPower && <Input 
                         defaultValue={secondDigit}
                         onFocus={(ev) => ev.target.select()}
                         onChange={(ev) => setSecondDigit(parseInt(ev.target.value) || "")}
-                        placeholder="21" className="ml-1 text-xl w-12 h-10 text-center p-0" />
+                        placeholder="21" className="ml-1 text-xl w-12 h-10 text-center p-0 placeholder:text-gray-300/50" />
                     }
                 </div>
                 <span className="text-2xl ml-2 mr-4">{separator}</span>
@@ -56,7 +56,7 @@ export const OperationWrapper = (props: OperationWrapperProps) => {
                     defaultValue={modulo}
                     onFocus={(ev) => ev.target.select()}
                     onChange={(ev) => setModulo(parseInt(ev.target.value) || "")} 
-                    placeholder="13" className="px-2 w-32 h-18 text-center text-5xl placeholder:text-gray-300" />
+                    placeholder="13" className="px-2 w-32 h-18 text-center text-5xl placeholder:text-gray-300/50" />
             </div>
             <div onClick={getDividersHandler} className="font-bold text-6xl">{result}</div>
             {dividers && showDividers && <div className="text-sm">{dividers.length === 1 ? "Это простое число" : dividers.join(" × ")}</div>}
