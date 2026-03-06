@@ -3,7 +3,29 @@ import { calculate as calculateExponentiation } from "./mod-exponentiation";
 import { calculate as calculateInverse } from "./mod-inverse";
 import { getDividers } from "./get-dividers";
 import { gcd } from "./gcd";
+import { mod } from "./mod";
 
+describe("mod", () => {
+    test("calculates mod with positive numbers", () => {
+        expect(mod(10, 3)).toBe(1);
+    });
+
+    test("calculates mod with negative numbers", () => {
+        expect(mod(-10, 3)).toBe(2);
+    });
+
+    test("calculates mod with zero", () => {
+        expect(mod(10, 0)).toBeNaN();
+    });
+
+    test("calculates mod with negative divisor", () => {
+        expect(mod(10, -3)).toBe(-2);
+    });
+
+    test("calculates mod with both negative", () => {
+        expect(mod(-10, -3)).toBe(-1);
+    }); 
+});
 
 describe("modular exponentiation", () => {
     test("calculates modular exponentiation with positive base", () => {
