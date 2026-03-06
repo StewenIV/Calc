@@ -44,7 +44,7 @@ describe("modular exponentiation", () => {
 
 
     test("calculates modular exponentiation with no values", () => {
-        expect(calculateExponentiation(string, string, 3)).toBeNull();
+        expect(calculateExponentiation("", "", 3)).toBeNull();
     });
 
     test("calculates modular exponentiation with big values", () => {
@@ -83,7 +83,7 @@ describe("get dividers", () => {
     });
 
     test("calculates dividers with no value", () => {
-        expect(getDividers(string)).toBeNull();
+        expect(getDividers("")).toBeNull();
     });
 
     test("calculates dividers with big value", () => {
