@@ -4,10 +4,10 @@ import { OperationWrapper } from "../OperationWrapper"
 
 
 export const ModExponentiation = () => {
-    const [firstDigit, setFirstDigit] = useState<number | "">("")
-    const [secondDigit, setSecondDigit] = useState<number | "">("")
-    const [modulo, setModulo] = useState<number | "">("")
-    const [result, setResult] = useState<number | "">("")
+    const [firstDigit, setFirstDigit] = useState<number | string>("")
+    const [secondDigit, setSecondDigit] = useState<number | string>("")
+    const [modulo, setModulo] = useState<number | string>("")
+    const [result, setResult] = useState<number | string>("")
 
     useEffect(() => {
         setResult(calculate(firstDigit, secondDigit || 1, modulo) || "")

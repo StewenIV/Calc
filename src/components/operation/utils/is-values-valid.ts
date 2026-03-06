@@ -1,3 +1,3 @@
-export const isValuesValid = (...nums : (number | "")[]) => {
-    return nums.every(num => typeof num === "number" && !isNaN(num))
+export const isValuesValid = (...nums : (number | string)[]) => {
+    return nums.every(num => !isNaN(+num))
 } 

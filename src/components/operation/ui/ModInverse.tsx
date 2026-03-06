@@ -4,10 +4,10 @@ import { OperationWrapper } from "../OperationWrapper";
 
 
 export const ModInverse = () => {
-    const [firstDigit, setFirstDigit] = useState<number | "">("")
+    const [firstDigit, setFirstDigit] = useState<number | string>("")
     const secondDigit = -1;
-    const [modulo, setModulo] = useState<number | "">("")
-    const [result, setResult] = useState<number | "">("")
+    const [modulo, setModulo] = useState<number | string>("")
+    const [result, setResult] = useState<number | string>("")
 
     return (
         <OperationWrapper 

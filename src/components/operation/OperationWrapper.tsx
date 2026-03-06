@@ -4,15 +4,15 @@ import { getDividers } from "./utils/get-dividers"
 
 
 interface OperationWrapperProps {
-    firstDigit: number | ""
-    secondDigit: number | ""
-    modulo: number | ""
-    setFirstDigit: (value: number | "") => void
-    setSecondDigit: (value: number | "") => void
-    setModulo: (value: number | "") => void
-    result: number | null | ""
-    setResult: (value: number | "") => void
-    calculate: (firstDigit: number | "", secondDigit: number | "", modulo: number | "") => number | null | "",
+    firstDigit: number | string
+    secondDigit: number | string
+    modulo: number | string
+    setFirstDigit: (value: number | string) => void
+    setSecondDigit: (value: number | string) => void
+    setModulo: (value: number | string) => void
+    result: number | null | string
+    setResult: (value: number | string) => void
+    calculate: (firstDigit: number | string, secondDigit: number | string, modulo: number | string) => number | null | string,
 
     showDividers?: boolean
     showPower?: boolean
@@ -35,9 +35,9 @@ export const OperationWrapper = (props: OperationWrapperProps) => {
         setDividers(getDividers(result));
     }
 
-    const handleChangeValue = (value : ChangeEvent<HTMLInputElement>, callback: (value: number | "") => void) => {
-        const intValue = parseInt(value.target.value.replace(/\D/g, ''));
-        callback(isNaN(intValue) ? "" : intValue);
+    const handleChangeValue = (value : ChangeEvent<HTMLInputElement>, callback: (value: number | string) => void) => {
+        const intValue = (value.target.value.replace(/[^\d-]/g, ''));
+        callback(intValue);
     }
 
     return (

@@ -2,8 +2,11 @@ import { isValuesValid } from "./is-values-valid";
 import { mod } from "./mod";
 
 // right-to-left binary method
-export const calculate = (firstDigit: number | "", secondDigit: number | "", modulo: number | "") => { 
+export const calculate = (firstDigit: number | string, secondDigit: number | string, modulo: number | string) => { 
     if (!isValuesValid(firstDigit, secondDigit, modulo)) return null;
+    firstDigit = +firstDigit;
+    secondDigit = +secondDigit;
+    modulo = +modulo;
 
     let result = 1
     let base = mod(firstDigit as number, modulo as number)
