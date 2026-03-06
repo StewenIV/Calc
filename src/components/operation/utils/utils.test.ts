@@ -4,6 +4,7 @@ import { calculate as calculateInverse } from "./mod-inverse";
 import { getDividers } from "./get-dividers";
 import { gcd } from "./gcd";
 
+
 describe("modular exponentiation", () => {
     test("calculates modular exponentiation with positive base", () => {
         expect(calculateExponentiation(27, 11, 7)).toBe(6);
