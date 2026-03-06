@@ -53,7 +53,7 @@ export const OperationWrapper = (props: OperationWrapperProps) => {
                         value={secondDigit}
                         onFocus={(ev) => ev.target.select()}
                         onChange={(ev) => handleChangeValue(ev, setSecondDigit)}
-                        placeholder="21" className="ml-1 text-xl w-12 h-10 text-center p-0 placeholder:text-gray-300/50" />
+                        placeholder="1" className="ml-1 text-xl w-12 h-10 text-center p-0 placeholder:text-gray-300/50" />
                     }
                 </div>
                 <span className="text-2xl ml-2 mr-4">{separator}</span>

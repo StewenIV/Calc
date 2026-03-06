@@ -10,9 +10,8 @@ export const ModExponentiation = () => {
     const [result, setResult] = useState<number | "">("")
 
     useEffect(() => {
-        setResult(calculate(firstDigit, secondDigit, modulo) || "")
+        setResult(calculate(firstDigit, secondDigit || 1, modulo) || "")
     }, [firstDigit, secondDigit, modulo])
-
 
     return (
         <OperationWrapper 
