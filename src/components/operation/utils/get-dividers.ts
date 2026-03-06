@@ -1,4 +1,5 @@
 import { isValuesValid } from "./is-values-valid"
+import { mod } from "./mod";
 
 
 export const getDividers = (a: number | any) => {
@@ -8,7 +9,7 @@ export const getDividers = (a: number | any) => {
     let changable = a;
     let divider = 2;
     while(changable != 1){
-        if(changable % divider === 0){
+        if(mod(changable, divider) === 0){
             dividers.push(divider);
             changable /= divider;
         } else {

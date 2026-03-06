@@ -1,4 +1,5 @@
 import { isValuesValid } from "./is-values-valid";
+import { mod } from "./mod";
 
 
 export const gcd = (a: number | any, b: number | any) => {
@@ -9,7 +10,7 @@ export const gcd = (a: number | any, b: number | any) => {
 
     while (y) {
         const t = y;
-        y = x % y;
+        y = mod(x, y);
         x = t;
     }
     return Math.abs(x);
