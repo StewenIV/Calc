@@ -99,6 +99,7 @@ describe("get dividers", () => {
 
 describe("gcd", () => {
     test("calculates gcd", () => {
+        expect(gcd(24, 48)).toBe(24);
         expect(gcd(48, 18)).toBe(6);
         expect(gcd(56, 98)).toBe(14);
         expect(gcd(101, 10)).toBe(1); 
