@@ -1,10 +1,12 @@
 import "@testing-library/jest-dom";
-import userEvent from "@testing-library/user-event"
 import { test, describe, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { ModInverse } from "./ModInverse";
+import { userEvent } from '@vitest/browser/context';
 
 describe("Mod inverse UI Test", () => {
+    const user = userEvent.setup();
+
     test("Mod inverse result should be empty initially", () => {
         render(<ModInverse />);
         const result = screen.queryByTestId("result");
@@ -24,8 +26,8 @@ describe("Mod inverse UI Test", () => {
         const modulo = screen.getByPlaceholderText("13");
         const result = screen.queryByTestId("result");
 
-        await userEvent.type(firstDigit, "13");
-        await userEvent.type(modulo, "51");
+        await user.type(firstDigit, "13");
+        await user.type(modulo, "51");
         expect(result).toHaveTextContent("4");
 
     })
