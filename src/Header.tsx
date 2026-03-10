@@ -11,8 +11,8 @@ export const Header = ({value, setValue} : {value: Operation, setValue: (value: 
         <header className="header flex flex-row justify-between items-center w-screen px-4 py-2">
             <div>
                 {theme === "dark" ? 
-                <Sun size={24} className="cursor-pointer" onClick={() => setTheme("light")} /> : 
-                <Moon size={24} className="cursor-pointer" onClick={() => setTheme("dark")} />}
+                <Sun size={24} data-testid="sun" className="cursor-pointer" onClick={() => setTheme("light")} /> : 
+                <Moon size={24} data-testid="moon" className="cursor-pointer" onClick={() => setTheme("dark")} />}
             </div>
             <div>
                 <ToggleGroup onValueChange={v => v && setValue(v as Operation)} type="single" variant="outline" value={value}>
