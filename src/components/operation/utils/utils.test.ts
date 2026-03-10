@@ -1,4 +1,4 @@
-import { test, expect, describe } from "@jest/globals";
+import { test, expect, describe } from "vitest";
 import { calculate as calculateExponentiation } from "./mod-exponentiation";
 import { calculate as calculateInverse } from "./mod-inverse";
 import { getDividers } from "./get-dividers";

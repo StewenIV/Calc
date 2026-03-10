@@ -1,13 +1,13 @@
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event"
-import { test, describe, expect, jest } from "@jest/globals";
+import { test, describe, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { Header } from "./Header";
 import { Operation } from "./types/Operation";
 
 describe("Header UI Test", () => {
     test("Header light theme initial", () => {
-        const handleClick = jest.fn();
+        const handleClick = vi.fn();
         render(<Header value={Operation.ModExponentiation} setValue={handleClick}/>)
 
         const darkTheme = screen.queryByTestId("moon");
@@ -19,7 +19,7 @@ describe("Header UI Test", () => {
     })
 
     test("Header menu toggling", async () => {
-        const handleClick = jest.fn();
+        const handleClick = vi.fn();
         const {rerender} = render(<Header value={Operation.GCD} setValue={handleClick}/>)
 
         const modInverse = screen.getByLabelText("module Inverse");

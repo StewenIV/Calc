@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event"
-import { test, describe, expect } from "@jest/globals";
+import { test, describe, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { ModInverse } from "./ModInverse";
 
