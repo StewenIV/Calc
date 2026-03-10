@@ -63,7 +63,7 @@ export const OperationWrapper = (props: OperationWrapperProps) => {
                     onChange={(ev) => handleChangeValue(ev, setModulo)} 
                     placeholder="13" className="px-2 w-32 h-18 text-center text-5xl placeholder:text-gray-300/50" />
             </div>
-            <div onClick={getDividersHandler} className="font-bold text-6xl">{result}</div>
+            <div onClick={getDividersHandler} className="font-bold text-6xl" data-testid="result">{result}</div>
             {dividers && showDividers && <div className="text-sm">{dividers.length === 1 ? "Это простое число" : dividers.join(" × ")}</div>}
         </section>
     )
