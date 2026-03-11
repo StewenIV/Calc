@@ -11,6 +11,7 @@ export const ModExponentiation = () => {
     const [result, setResult] = useState<number | string>("")
 
     const calculate = (first: number | string, second: number | string, mod: number | string) => {
+        console.log("Calculating with", first, second, mod)
         if (+second === -1) {
             return calcModInverse(first, mod)
         } else if (+second > -1) {
@@ -19,10 +20,6 @@ export const ModExponentiation = () => {
             return ""
         }
     }
-
-    useEffect(() => {
-        setResult(calculate(firstDigit, secondDigit || 1, modulo) || "")
-    }, [firstDigit, secondDigit, modulo])
 
     return (
         <OperationWrapper 

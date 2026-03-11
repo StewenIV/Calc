@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState, type ChangeEvent } from "react"
 import { Input } from "../../shared/input"
 import { getDividers } from "./utils/get-dividers"
 import { Textarea } from "@/shared/textarea"
+import { Parser } from "expr-eval"
 
 
 interface OperationWrapperProps {
@@ -20,6 +21,9 @@ interface OperationWrapperProps {
     separator?: string
 }
 
+const parser = new Parser();
+
+
 export const OperationWrapper = (props: OperationWrapperProps) => {
     const [dividers, setDividers] = useState<number[] | null>(null);
     const { firstDigit, secondDigit, modulo, setFirstDigit, setSecondDigit, setModulo, result, setResult, calculate, showDividers = true, showPower = true, separator = " % " } = props;
@@ -32,7 +36,15 @@ export const OperationWrapper = (props: OperationWrapperProps) => {
     }), [])
 
     useEffect(() => {
-        setResult(calculate(firstDigit, secondDigit, modulo) || "")
+
+        try {
+            const parsedFirstDigit = parser.evaluate(firstDigit.toString());
+            const parsedSecondDigit = parser.evaluate(secondDigit.toString().length > 0 ? secondDigit.toString() : "1");
+            const parsedModulo = parser.evaluate(modulo.toString());
+
+            const calculatedResult = calculate(parsedFirstDigit, parsedSecondDigit, parsedModulo) || "";
+            setResult(calculatedResult);
+        } catch (error) { }
     }, [firstDigit, secondDigit, modulo])
 
     useEffect(() => {
@@ -40,13 +52,13 @@ export const OperationWrapper = (props: OperationWrapperProps) => {
     }, [result])
 
     const getTextSize = (value: string) => {
-        if(value.length <= 4)
+        if(value.length <= 3)
             return textSizes.normal;
         else if(value.length <= 6)
             return textSizes.small;
-        else if(value.length <= 8)
+        else if(value.length <= 7)
             return textSizes.smaller;
-        else if(value.length <= 10)
+        else if(value.length <= 9)
             return textSizes.very_small;
     }
 
@@ -55,7 +67,7 @@ export const OperationWrapper = (props: OperationWrapperProps) => {
     }
 
     const handleChangeValue = (value : ChangeEvent<HTMLInputElement>, callback: (value: number | string) => void) => {
-        const intValue = (value.target.value.replace(/[^\d-]/g, ''));
+        const intValue = (value.target.value.replace(/[^\d\+\-\*]/g, ''));
         callback(intValue);
     }
 
