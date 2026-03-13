@@ -19,9 +19,9 @@ export const Header = ({value, setValue} : {value: Operation, setValue: (value: 
                     <ToggleGroupItem value={Operation.ModExponentiation} aria-label="module Exponentiation">
                         <span className="text-foreground">x <sup>y</sup> % z</span>
                     </ToggleGroupItem>
-                    <ToggleGroupItem value={Operation.ModInverse} aria-label="module Inverse">
+                    {/* <ToggleGroupItem value={Operation.ModInverse} aria-label="module Inverse">
                         <span className="text-foreground">x <sup>-1</sup> % z</span>
-                    </ToggleGroupItem>
+                    </ToggleGroupItem> */}
                     <ToggleGroupItem value={Operation.GCD} aria-label="GCD">
                         <span className="text-foreground">НОД(x,y)</span>
                     </ToggleGroupItem>                    

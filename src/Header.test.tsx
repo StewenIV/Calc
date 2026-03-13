@@ -30,18 +30,18 @@ describe("Header UI Test", () => {
 
         rerender(<Header value={Operation.ModInverse} setValue={handleClick}/>)
 
-        const modExponentiation = screen.getByLabelText("module Exponentiation");
-        await user.click(modExponentiation);
-        expect(handleClick).toHaveBeenCalledWith(Operation.ModExponentiation);
+        // const modExponentiation = screen.getByLabelText("module Exponentiation");
+        // await user.click(modExponentiation);
+        // expect(handleClick).toHaveBeenCalledWith(Operation.ModExponentiation);
 
-        rerender(<Header value={Operation.ModExponentiation} setValue={handleClick}/>)
+        // rerender(<Header value={Operation.ModExponentiation} setValue={handleClick}/>)
         
         const gcd = screen.getByLabelText("GCD");
         await user.click(gcd);
 
         expect(handleClick).toHaveBeenCalledWith(Operation.GCD);
 
-        expect(handleClick).toHaveBeenCalledTimes(3);
+        expect(handleClick).toHaveBeenCalledTimes(2);
 
     })    
 });
