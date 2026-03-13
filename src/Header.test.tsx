@@ -10,7 +10,8 @@ describe("Header UI Test", () => {
 
     test("Header light theme initial", () => {
         const handleClick = vi.fn();
-        render(<Header value={Operation.ModExponentiation} setValue={handleClick}/>)
+        const toggleDialog = vi.fn();
+        render(<Header value={Operation.ModExponentiation} setValue={handleClick} toggleDialog={toggleDialog}/>)
 
         const darkTheme = screen.queryByTestId("sun");
         const lightTheme = screen.queryByTestId("moon");
@@ -22,13 +23,13 @@ describe("Header UI Test", () => {
 
     test("Header menu toggling", async () => {
         const handleClick = vi.fn();
-        const {rerender} = render(<Header value={Operation.GCD} setValue={handleClick}/>)
+        const {rerender} = render(<Header value={Operation.GCD} setValue={handleClick} toggleDialog={vi.fn()}/>)
 
         const modInverse = screen.getByLabelText("module Inverse");
         await user.click(modInverse);
         expect(handleClick).toHaveBeenCalledWith(Operation.ModInverse);
 
-        rerender(<Header value={Operation.ModInverse} setValue={handleClick}/>)
+        rerender(<Header value={Operation.ModInverse} setValue={handleClick} toggleDialog={vi.fn()}/>)
 
         // const modExponentiation = screen.getByLabelText("module Exponentiation");
         // await user.click(modExponentiation);

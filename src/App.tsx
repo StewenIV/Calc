@@ -8,11 +8,13 @@ import { UpdateDialog } from './components/update-dialog/UpdateDialog'
 
 function App() {
   const [operation, setOperation] = useState<Operation>(Operation.ModExponentiation)
-  
+  const [isShowUpdateDialog, setIsShowUpdateDialog] = useState(false);
+
   return (
     <main>
-        <UpdateDialog />
+        <UpdateDialog show={isShowUpdateDialog} toggleDialog={(val) => setIsShowUpdateDialog(typeof val === 'boolean' ? val : !isShowUpdateDialog)} />
         <Header
+          toggleDialog={() => setIsShowUpdateDialog(pr => !pr)}
           setValue={setOperation} 
           value={operation}/>
           

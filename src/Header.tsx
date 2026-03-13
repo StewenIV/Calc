@@ -4,7 +4,7 @@ import { Operation } from "./types/Operation"
 import { useTheme } from "./components/theme-provider/theme-provider"
 
 
-export const Header = ({value, setValue} : {value: Operation, setValue: (value: Operation) => void}) => {
+export const Header = ({value, setValue, toggleDialog} : {value: Operation, setValue: (value: Operation) => void, toggleDialog: () => void}) => {
     const {setTheme, theme} = useTheme()
 
     return (
@@ -28,7 +28,7 @@ export const Header = ({value, setValue} : {value: Operation, setValue: (value: 
                 </ToggleGroup>
             </div>
             <div>
-                <Info />
+                <Info onClick={toggleDialog} />
             </div>
         </header>
     )
