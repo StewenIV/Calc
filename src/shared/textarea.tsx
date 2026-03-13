@@ -2,7 +2,7 @@ import * as React from "react"
 import TextareaAutosize from 'react-textarea-autosize';
 import { cn } from "@/lib/utils"
 
-function Textarea({ className, ...props }: React.ComponentProps<"textarea">) {
+function Textarea({ className, style, ...props }: React.ComponentProps<"textarea">) {
   return (
     <TextareaAutosize
       data-slot="textarea"
@@ -11,6 +11,8 @@ function Textarea({ className, ...props }: React.ComponentProps<"textarea">) {
         className
       )}
       {...props}
+      // Only pass height if style.height is a number
+      style={typeof style?.height === "number" ? { height: style.height } : undefined}
     />
   )
 }

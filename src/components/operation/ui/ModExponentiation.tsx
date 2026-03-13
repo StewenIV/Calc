@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { calculate as calcModExp } from "../utils/mod-exponentiation"
 import { calculate as calcModInverse } from "../utils/mod-inverse"
 import { OperationWrapper } from "../OperationWrapper"

@@ -66,7 +66,7 @@ export const OperationWrapper = (props: OperationWrapperProps) => {
         setDividers(getDividers(result));
     }
 
-    const handleChangeValue = (value : ChangeEvent<HTMLInputElement>, callback: (value: number | string) => void) => {
+    const handleChangeValue = (value : ChangeEvent<HTMLTextAreaElement | HTMLInputElement>, callback: (value: number | string) => void) => {
         const intValue = (value.target.value.replace(/[^\d\+\-\*]/g, ''));
         callback(intValue);
     }
