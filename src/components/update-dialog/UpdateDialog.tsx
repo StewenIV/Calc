@@ -9,19 +9,21 @@ import {
 } from "@/shared/alert-dialog"
 import { useEffect, useState } from "react"
 
+const VERSION = "1.4.0";
+
 export const UpdateDialog = () => {
     const [isShow, setIsShow] = useState(false);
 
     useEffect(() => {
         const lastVersion = localStorage.getItem("last-version");
-        if(lastVersion !== "1.3.0"){
+        if(lastVersion !== VERSION){
             setTimeout(() => setIsShow(true), 1000) 
         }
     }, [])
 
     const handleClose = () => {
         setIsShow(false);
-        localStorage.setItem("last-version", "1.3.0");
+        localStorage.setItem("last-version", VERSION);
     }
 
     return (
@@ -33,9 +35,9 @@ export const UpdateDialog = () => {
             <div>
                 <span className="block">В новой версии калькулятора:</span> <br />
                 <div>
-                    <p>Изменена операция деления с остатком. Отрицательные числа теперь обрабатываются корректно</p>
+                    <p>Операция инверсии перенесена в режим <span className="bg-blue-950 px-2 rounded">x <sup>y</sup> % z</span>. Данный режим теперь поддерживает степень <strong>-1</strong></p>
                     <br />
-                    <p>В режиме <span className="bg-blue-950 px-2 rounded">x <sup>y</sup> % z</span> в степени <strong>1</strong> вводится по умолчанию</p>
+                    <p>Поля ввода были улучшены. Поля теперь поддерживают математические выражения с использованием операции сложения, вычитания и умножения</p>
                 </div>
             </div>
           </AlertDialogDescription>
