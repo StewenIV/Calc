@@ -83,40 +83,52 @@ export const OperationWrapper = (props: OperationWrapperProps) => {
     }
 
     return (
-        <section className="p-4 flex flex-col items-center gap-4">
-            <div className="flex items-center content-center">
-                <div className="flex content-center">
-                    <div className="flex flex-col items-center min-h-20 gap-2">
-                        <Textarea 
-                            value={firstDigit}
-                            onFocus={(ev) => ev.target.select()}
-                            onChange={(ev) => handleChangeValue(ev, setFirstDigit)}
-                            placeholder="17" className={`px-2 w-32 h-18 text-center ${getTextSize(firstDigit.toString())} placeholder:text-gray-300/50`}/>
-                        <span className="h-1 text-foreground">{+firstDigit !== parsedFirstDigit ? parsedFirstDigit : null}</span>
-                    </div>
-                    <div className="flex flex-col items-center min-h-14 gap-0.5 -mt-2">
-                        {showPower && <Input 
-                            value={secondDigit}
-                            onFocus={(ev) => ev.target.select()}
-                            onChange={(ev) => handleChangeValue(ev, setSecondDigit)}
-                            placeholder="1" className="ml-1 text-xl w-12 h-12 text-center p-0 placeholder:text-gray-300/50" />
-                        }
-                        <span className="h-1 text-foreground">{+secondDigit !== parsedSecondDigit ? parsedSecondDigit : null}</span>
+        <section className="mx-auto flex max-w-5xl flex-col gap-6 px-0 pt-6 sm:pt-8">
+            <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-4 shadow-[0_18px_60px_rgba(15,23,42,0.28)] backdrop-blur-xl sm:p-6">
+                <div className="mb-4 flex items-center justify-between gap-4 text-sm text-slate-300/80">
+                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Поддерживаются выражения с +, -, *</span>
+                    <span className="hidden rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-cyan-100 sm:inline-flex">Результат обновляется автоматически</span>
+                </div>
+
+                <div className="flex flex-col items-center justify-center gap-4 xl:flex-row xl:gap-5">
+                    <div className="flex flex-wrap items-center justify-center gap-3">
+                        <div className="flex min-w-[10rem] flex-col items-center gap-2 rounded-3xl border border-white/10 bg-slate-950/35 px-4 py-4 shadow-inner shadow-black/20">
+                            <Textarea
+                                value={firstDigit}
+                                onFocus={(ev) => ev.target.select()}
+                                onChange={(ev) => handleChangeValue(ev, setFirstDigit)}
+                                placeholder="17" className={`w-36 rounded-2xl border-white/10 bg-slate-900/60 px-3 text-center text-white shadow-lg shadow-black/10 placeholder:text-slate-400/50 ${getTextSize(firstDigit.toString())}`}/>
+                            <span className="min-h-5 text-sm text-cyan-100/80">{+firstDigit !== parsedFirstDigit ? parsedFirstDigit : null}</span>
+                        </div>
+
+                        <div className="flex flex-col items-center gap-2 rounded-3xl border border-white/10 bg-slate-950/35 px-4 py-4 shadow-inner shadow-black/20">
+                            {showPower && <Input
+                                value={secondDigit}
+                                onFocus={(ev) => ev.target.select()}
+                                onChange={(ev) => handleChangeValue(ev, setSecondDigit)}
+                                placeholder="1" className="h-12 w-14 rounded-2xl border-white/10 bg-slate-900/60 px-2 text-center text-white shadow-lg shadow-black/10 placeholder:text-slate-400/50" />
+                            }
+                            <span className="min-h-5 text-sm text-cyan-100/80">{+secondDigit !== parsedSecondDigit ? parsedSecondDigit : null}</span>
+                        </div>
                     </div>
 
-                </div>
-                <span className="text-2xl ml-2 mr-4">{separator}</span>
-                <div className="flex flex-col items-center min-h-20 gap-2">
-                    <Textarea 
-                        value={modulo}
-                        onFocus={(ev) => ev.target.select()}
-                        onChange={(ev) => handleChangeValue(ev, setModulo)} 
-                        placeholder="13" className={`px-2 w-32 h-18 text-center ${getTextSize(modulo.toString())} placeholder:text-gray-300/50`} />
-                    <span className="h-1 text-foreground">{+modulo !== parsedModulo ? parsedModulo : null}</span>
+                    <span className="hidden text-2xl font-semibold tracking-[0.35em] text-cyan-200/70 xl:inline-flex">{separator}</span>
+
+                    <div className="flex flex-col items-center gap-2 rounded-3xl border border-white/10 bg-slate-950/35 px-4 py-4 shadow-inner shadow-black/20">
+                        <Textarea
+                            value={modulo}
+                            onFocus={(ev) => ev.target.select()}
+                            onChange={(ev) => handleChangeValue(ev, setModulo)}
+                            placeholder="13" className={`w-36 rounded-2xl border-white/10 bg-slate-900/60 px-3 text-center text-white shadow-lg shadow-black/10 placeholder:text-slate-400/50 ${getTextSize(modulo.toString())}`} />
+                        <span className="min-h-5 text-sm text-cyan-100/80">{+modulo !== parsedModulo ? parsedModulo : null}</span>
+                    </div>
                 </div>
             </div>
-            <div onClick={getDividersHandler} className="font-bold text-6xl" data-testid="result">{result}</div>
-            {dividers && showDividers && <div className="text-sm">{dividers.length === 1 ? "Это простое число" : dividers.join(" × ")}</div>}
+
+            <button onClick={getDividersHandler} className="group mx-auto flex min-h-24 items-center justify-center rounded-[2rem] border border-cyan-400/20 bg-gradient-to-br from-cyan-400/15 via-sky-400/10 to-transparent px-6 py-5 text-center shadow-[0_20px_50px_rgba(8,145,178,0.15)] transition hover:-translate-y-0.5 hover:border-cyan-300/30 hover:from-cyan-400/20" data-testid="result" type="button">
+                <span className="font-mono text-5xl font-semibold tracking-tight text-white sm:text-6xl">{result}</span>
+            </button>
+            {dividers && showDividers && <div className="mx-auto rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 shadow-lg shadow-black/10">{dividers.length === 1 ? "Это простое число" : dividers.join(" × ")}</div>}
         </section>
     )
 }
